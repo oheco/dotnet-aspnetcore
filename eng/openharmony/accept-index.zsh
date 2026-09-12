@@ -8,7 +8,7 @@ index_kit=${0:A:h}
 [[ ! -e $index_root && -x $index_oo ]]
 mkdir -p "$index_root/tmp" "$index_root/cli" "$index_root/nuget"
 export OHECO_ROOT="$index_root/installation with spaces"
-export OHECO_INDEX_URL=https://oheco.github.io/oheco-packages/index/v3/index.json
+export OHECO_INDEX_URL=https://oheco.github.io/oheco-packages/index/v4/index.json
 export OHECO_NO_AUTO_UPDATE=1
 export DOTNET_OHOS_TMPDIR="$index_root/tmp" TMPDIR="$index_root/tmp"
 export DOTNET_CLI_HOME="$index_root/cli" NUGET_PACKAGES="$index_root/nuget"
