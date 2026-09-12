@@ -1,5 +1,18 @@
 # ASP.NET Core 10 on OpenHarmony ARM64
 
+ASP.NET Core `10.0.12-ohos.1` and the combined SDK `10.0.401-ohos.2` are
+published in the [official catalogue](https://oheco.github.io/oheco-packages/).
+Use `oo update` followed by `oo install dotnet-sdk` for development, or
+`oo install aspnetcore-runtime` to run framework-dependent Web applications.
+The standalone entry is `aspnetcore-runtime application.dll`.
+
+The final signed archives passed native acceptance on HarmonyOS PC ARM64
+API 26 / 7.0.0.105. Official oo 0.6.0 / v4-index acceptance also passed
+installation into a path with spaces, versioned commands, Web/AOT build and
+execution, switching between SDK ohos.1 and ohos.2, and uninstall cleanup.
+Exact sources, hashes, Pages deployment and results are in
+[VALIDATION.json](VALIDATION.json) and the immutable Release evidence assets.
+
 This port targets the HarmonyOS PC command-line environment. It builds
 Microsoft.AspNetCore.App 10.0.12 from the upstream v10.0.12 baseline
 `cb21a42eafcd44cc35fad48d99dc82ff7512ce2f`, with an independent
