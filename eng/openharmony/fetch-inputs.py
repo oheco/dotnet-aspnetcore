@@ -9,13 +9,14 @@ import subprocess
 
 p = argparse.ArgumentParser(description=__doc__)
 p.add_argument("downloads", type=Path)
+p.add_argument("--manifest", type=Path, default=Path(__file__).resolve().parent / "base-inputs.json")
 a = p.parse_args()
 a.downloads.mkdir(parents=True, exist_ok=True)
 proxy = os.environ.get("DOTNET_OHOS_PROXY", "socks5h://127.0.0.1:10808")
 if not proxy:
     p.error("A proxy is required")
 kit = Path(__file__).resolve().parent
-for item in json.loads((kit / "base-inputs.json").read_text())["archives"]:
+for item in json.loads(a.manifest.read_text())["archives"]:
     target = a.downloads / item["archive"]
     candidate = target
     if not target.exists():

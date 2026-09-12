@@ -95,3 +95,60 @@ trust integration is outside the validated scope.
 Release evidence must distinguish preliminary development overlays from the
 fresh, signed installation and official-index acceptance. See the published
 release's validation record for the final artifact hashes and native results.
+
+## SDK rebuild and distribution
+
+The additional SDK recipe uses Linux SDK 10.0.302 and fixed .NET 6–9 build-tool
+frameworks from `sdk-build-tools.json`. Download those with
+`fetch-inputs.py <downloads> --manifest sdk-build-tools.json`, then run
+`prepare-sdk-tools.py <downloads> <new-linux-tool-directory>`.
+
+The 860 upstream SDK/MSBuild dependency archives are fixed in
+`sdk-upstream-inputs.json`; use `fetch-nuget-inputs.py <manifest> <cache>`
+through the configured proxy. Obtain the archive described in
+`sdk-target-input-archive.json` from the SDK ohos.2 Release. It contains the
+17 exact prior Runtime/MSBuild target inputs, including the target runtime
+archive, their original licenses and the base manifest. Recreate and verify the
+complete base with `prepare-sdk-base.py <upstream-cache> <target-input-archive>
+<new-base-feed>`. The prior Runtime and MSBuild source-build recipes remain
+available in their adaptation repositories at the provenance commits.
+
+After the ASP.NET source build:
+
+```sh
+python3 prepare-sdk-feed.py /path/to/base-feed /tmp/aspnetcore-source /tmp/sdk-feed
+export DOTNET_INSTALL_DIR=/tmp/sdk-build-tools
+export NUGET_PACKAGES=/tmp/sdk-empty-cache
+export DOTNET_CLI_HOME=/tmp/sdk-cli
+python3 seed-nuget-cache.py "$DOTNET_INSTALL_DIR/dotnet" /tmp/sdk-feed/manifest.json \
+  /tmp/sdk-feed /tmp/sdk-seed /path/to/sdk-seed.log
+bash build-sdk-release.sh /tmp/fresh-sdk-source /tmp/sdk-feed /path/to/sdk-build.log
+```
+
+The SDK source must contain the ASP.NET integration described in
+`oheco/dotnet-sdk/eng/openharmony/ASP.NET.md`. All layout components are built
+by the normal source graph; no hand-copied Web SDK entry files are used in the
+release. `prepare-sdk-feed.py` records the ASP.NET source commit and archive
+hashes alongside the fixed base dependencies.
+
+`stage-distribution.py runtime <built-aspnet-source> <published-base-runtime-tar>
+<new-shared-stage>` composes the standalone package, preserving the signed base
+runtime. For the SDK, use `sdk` and add `--sdk-layout <redist/dotnet-installer>
+--sdk-source <sdk-source>`. The copier retains internal symlinks and avoids
+unsupported directory metadata operations on the shared mount.
+
+On the native host, sign the staged SDK using `sign-tree.zsh <stage> <logs>`;
+make the launchers executable. Use `package-tree.py` to preserve signed bytes
+and normalize execution permissions in a GNU-format tar archive. Extract both
+archives into fresh private directories with spaces in their names. Run
+`accept-web.zsh <sdk-root> <asp-runtime-root> <new-private-run-directory>`
+against these relocated trees. It checks all publish modes, the standalone
+runtime, gRPC, five standard Web templates including Blazor static framework
+assets, and developer tools without changing the user's certificate store or
+secret files. Existing console/MSBuild/native-AOT regression acceptance is
+provided by the Runtime repository's `accept-sdk.zsh`.
+
+Final publication includes immutable package archives, SHA-256 sums, source
+provenance and native acceptance evidence. Catalogue installation must then be
+verified using the official online index in an isolated `oo` root; a successful
+source build or development overlay is not considered a delivered version.

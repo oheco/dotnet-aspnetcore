@@ -1,0 +1,60 @@
+{
+  "format": 1,
+  "archives": [
+    {
+      "name": "dotnet-sdk-linux-arm64",
+      "version": "10.0.302",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.302/dotnet-sdk-10.0.302-linux-arm64.tar.gz",
+      "archive": "dotnet-sdk-10.0.302-linux-arm64.tar.gz",
+      "size": 228422860,
+      "sha512": "9e409c14e00686d661c78fa4dd9ad0e4dcf695c328bd5ff777d05b4a9c34b42cf89b12573b92e9fb2f565dbe12016b4835f77c7d9a42b55a7494df21634cd5d6",
+      "sha256": "1c56318e4099990719f6369184e08bbad0248c09c5ad7532d2516e3cdfc3ab6d",
+      "purpose": "SDK build bootstrap",
+      "license": "MIT"
+    },
+    {
+      "name": "dotnet-runtime-linux-arm64",
+      "version": "6.0.0",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Runtime/6.0.0/dotnet-runtime-6.0.0-linux-arm64.tar.gz",
+      "archive": "dotnet-runtime-6.0.0-linux-arm64.tar.gz",
+      "size": 28373916,
+      "sha512": "b0f0f2b4dc0a31b06cc3af541a3c44260317ca3a4414a5d50e6cf859d93821b3d2c2246baec9f96004aeb1eb0e353631283b11cf3acc134d4694f0ed71c9503d",
+      "sha256": "b04393f981ccb4face34d9e86731df4e1ee97106a5571d0c4cc0932c944718a6",
+      "license": "MIT",
+      "purpose": "upstream SDK build/test tooling only; excluded from OHOS distribution"
+    },
+    {
+      "name": "dotnet-runtime-linux-arm64",
+      "version": "7.0.0",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Runtime/7.0.0/dotnet-runtime-7.0.0-linux-arm64.tar.gz",
+      "archive": "dotnet-runtime-7.0.0-linux-arm64.tar.gz",
+      "size": 29764204,
+      "sha512": "a359402471c0c4f11f9e472ee6f8d7d165b57a29f132e01a95d3ee4020fa27f9c6ed5ede4b41786fd9bbad1491a4726c6f45d105c19695c0a1cc9a9d414ee614",
+      "sha256": "f23e32f764f54a08cc721aff4ec4885ee805cd2a8757570cd9a418ecc87ff79b",
+      "license": "MIT",
+      "purpose": "upstream SDK build/test tooling only; excluded from OHOS distribution"
+    },
+    {
+      "name": "dotnet-runtime-linux-arm64",
+      "version": "8.0.0",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Runtime/8.0.0/dotnet-runtime-8.0.0-linux-arm64.tar.gz",
+      "archive": "dotnet-runtime-8.0.0-linux-arm64.tar.gz",
+      "size": 29856067,
+      "sha512": "bb39fed4cff3a1a0a4e5084a517feeacb571700b8114b83b0b040f63f279d32eb9195d9b94cd60f8aa969b84adaad51694a2e26255177a30f40f50f634d29c21",
+      "sha256": "09ac683722a29d0dbe49e3c7604a641a787335a6b4e2adf5a0bd43575c665e78",
+      "license": "MIT",
+      "purpose": "upstream SDK build/test tooling only; excluded from OHOS distribution"
+    },
+    {
+      "name": "dotnet-runtime-linux-arm64",
+      "version": "9.0.0",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.0/dotnet-runtime-9.0.0-linux-arm64.tar.gz",
+      "archive": "dotnet-runtime-9.0.0-linux-arm64.tar.gz",
+      "size": 31797263,
+      "sha512": "4f9c2dd544af0b8540c16352b9f01f75f828b8e4e084057a300a4dec652fb3d6532906cdd4246399cc13f16b571b17575812ec2f9c297e27bbed678baf4b2fde",
+      "sha256": "96ab6bbe5fe4fc6cce4c24edd96e6333bd92be548f0c73f4357ff9f45e5a36b1",
+      "license": "MIT",
+      "purpose": "upstream SDK build/test tooling only; excluded from OHOS distribution"
+    }
+  ]
+}

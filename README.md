@@ -1,3 +1,7 @@
+> OpenHarmony / HarmonyOS PC ARM64 适配：目标 .NET 10 LTS，包含 ASP.NET Core 运行时及 SDK 集成。
+> 构建、使用、验证和限制见 [eng/openharmony/README.md](eng/openharmony/README.md)。
+> 上游基线为 v10.0.12；发行包见 [Releases](https://github.com/oheco/dotnet-aspnetcore/releases)。
+
 ASP.NET Core
 ============
 

@@ -1,0 +1,11 @@
+{
+  "name": "sdk-target-build-inputs",
+  "version": "10.0.401-ohos.2",
+  "archive": "dotnet-sdk-10.0.401-ohos.2-target-build-inputs.tar.gz",
+  "size": 255142986,
+  "sha256": "b77b3b0e49e954bfd1d85011d9771d6e9825c5cffca5aeb7a160e62cebe52cb7",
+  "url": "https://github.com/oheco/dotnet-sdk/releases/download/v10.0.401-ohos.2/dotnet-sdk-10.0.401-ohos.2-target-build-inputs.tar.gz",
+  "license": "Original Runtime/MSBuild package licenses; MIT and bundled component notices",
+  "runtime_source_commit": "033589b2981f30e657b283f54a3697c5d124fc3b",
+  "sdk_msbuild_source_commit": "5b59cdf24fe31f9aeb5ab17c40c44b87f09303a9"
+}
