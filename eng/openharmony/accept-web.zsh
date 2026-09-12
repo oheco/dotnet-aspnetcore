@@ -12,6 +12,7 @@ command -v binary-sign-tool >/dev/null
 command -v clang >/dev/null
 mkdir -p "$accept_root/tmp" "$accept_root/cli" "$accept_root/nuget" "$accept_root/appdata" "$accept_root/data"
 export DOTNET_CLI_HOME="$accept_root/cli" NUGET_PACKAGES="$accept_root/nuget"
+export DOTNET_ROOT="$accept_sdk" DOTNET_ROOT_ARM64="$accept_sdk"
 export DOTNET_OHOS_TMPDIR="$accept_root/tmp" TMPDIR="$accept_root/tmp"
 export APPDATA="$accept_root/appdata" XDG_DATA_HOME="$accept_root/data"
 export DOTNET_GENERATE_ASPNET_CERTIFICATE=false DOTNET_CLI_TELEMETRY_OPTOUT=1 DOTNET_NOLOGO=1
