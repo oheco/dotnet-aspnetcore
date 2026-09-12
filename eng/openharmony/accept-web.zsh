@@ -101,4 +101,12 @@ accept_run secrets-list "$accept_sdk/bin/dotnet" user-secrets list --project "$a
 [[ $(< "$accept_root/secrets-list.log") == *'probe-value'* ]]
 accept_run secrets-remove "$accept_sdk/bin/dotnet" user-secrets remove acceptance:value --project "$accept_root/template-web/TemplateApp.csproj"
 accept_run jwts-help "$accept_sdk/bin/dotnet" user-jwts --help
+accept_run new-console "$accept_sdk/bin/dotnet" new console --name ConsoleProbe --output "$accept_root/console with spaces" --no-restore
+cd "$accept_root/console with spaces"
+for accept_revision in 1 2; do
+    print -r -- "Console.WriteLine(\"console revision $accept_revision\");" > Program.cs
+    accept_run "console-build-$accept_revision" "$accept_sdk/bin/dotnet" build -c Release --disable-build-servers
+    accept_run "console-run-$accept_revision" ./bin/Release/net10.0/ConsoleProbe
+    [[ $(< "$accept_root/console-run-$accept_revision.log") == "console revision $accept_revision" ]]
+done
 print 'PASS full ASP.NET Core native acceptance'
