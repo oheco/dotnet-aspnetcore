@@ -1,0 +1,74 @@
+{
+  "format": 1,
+  "archives": [
+    {
+      "name": "dotnet-sdk-linux-arm64",
+      "version": "10.0.111",
+      "archive": "dotnet-sdk-10.0.111-linux-arm64.tar.gz",
+      "size": 232236734,
+      "sha256": "aced43b41bdeb3c94138823509c6519bfdda45c6dbefcec4cf2510cfb33371d5",
+      "sha512": "1e115ddb850950d4514d6a3b32b2d17b240a4f0f40b37202df4e5bdf6832a0e546722e6bf9b9ed7df7cccb34df5f5e48bcb075322fb01815bffc6e9c23999f0e",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.111/dotnet-sdk-10.0.111-linux-arm64.tar.gz",
+      "license": "MIT (plus bundled component notices)"
+    },
+    {
+      "name": "node-linux-arm64",
+      "version": "24.15.0",
+      "archive": "node-v24.15.0-linux-arm64.tar.xz",
+      "size": 30108656,
+      "sha256": "f3d5a797b5d210ce8e2cb265544c8e482eaedcb8aa409a8b46da7e8595d0dda0",
+      "url": "https://nodejs.org/dist/v24.15.0/node-v24.15.0-linux-arm64.tar.xz",
+      "license": "MIT (plus bundled component notices)"
+    },
+    {
+      "name": "openharmony-sdk",
+      "version": "10.0.401-ohos.1",
+      "archive": "dotnet-sdk-10.0.401-ohos.1-arm64.tar.gz",
+      "size": 338145713,
+      "sha256": "f66f292f389e6cfb109fd60de0cf44caf535ac8e9cc9c16044524cfba8ecedaf",
+      "url": "https://github.com/oheco/dotnet-sdk/releases/download/v10.0.401-ohos.1/dotnet-sdk-10.0.401-ohos.1-arm64.tar.gz",
+      "license": "MIT (plus bundled component notices)",
+      "repository": "https://github.com/oheco/dotnet-sdk",
+      "source_commit": "5b59cdf24fe31f9aeb5ab17c40c44b87f09303a9"
+    },
+    {
+      "name": "openharmony-runtime",
+      "version": "10.0.12-ohos.1",
+      "archive": "dotnet-runtime-10.0.12-ohos.1-arm64.tar.gz",
+      "size": 50841479,
+      "sha256": "8917be58e7bc8f5fb0b8d71d2d397c92b1de3798c34cfbfa3ecebde105e9758d",
+      "url": "https://github.com/oheco/dotnet-runtime/releases/download/v10.0.12-ohos.1/dotnet-runtime-10.0.12-ohos.1-arm64.tar.gz",
+      "license": "MIT (plus bundled component notices)",
+      "repository": "https://github.com/oheco/dotnet-runtime",
+      "source_commit": "033589b2981f30e657b283f54a3697c5d124fc3b"
+    },
+    {
+      "name": "MessagePack-CSharp",
+      "version": "365965f0d8c13c40ff8fde25882066b90f569c7a",
+      "archive": "messagepack-csharp-365965f0d8c13c40ff8fde25882066b90f569c7a.tar.gz",
+      "size": 1232311,
+      "sha256": "7fe005997d35b0de0bc5936f201b5ef7d4ce857b2830d84005551f71f9f98c19",
+      "url": "https://codeload.github.com/aspnet/MessagePack-CSharp/tar.gz/365965f0d8c13c40ff8fde25882066b90f569c7a",
+      "license": "MIT",
+      "usage": "Pinned upstream source submodule required by Components.Server"
+    },
+    {
+      "name": "aspnetcore-nuget-inputs",
+      "version": "10.0.12-ohos.1",
+      "archive": "aspnetcore-10.0.12-ohos.1-nuget-inputs.tar.gz",
+      "size": 265019964,
+      "sha256": "55ed070f9773664862649bdaf1cdd469cb383a0dc72dcf49b847deefd6ac6727",
+      "url": "https://github.com/oheco/dotnet-aspnetcore/releases/download/v10.0.12-ohos.1/aspnetcore-10.0.12-ohos.1-nuget-inputs.tar.gz",
+      "license": "Per-package licenses in nuget-inputs.json and original NuGet payloads"
+    },
+    {
+      "name": "aspnetcore-npm-inputs",
+      "version": "10.0.12-ohos.1",
+      "archive": "aspnetcore-10.0.12-ohos.1-npm-inputs.tar.gz",
+      "size": 85907370,
+      "sha256": "f4678c3182e1b71e56ad8fa6d079701d8f6d12f5fe7baadcf37f6dff5e289807",
+      "url": "https://github.com/oheco/dotnet-aspnetcore/releases/download/v10.0.12-ohos.1/aspnetcore-10.0.12-ohos.1-npm-inputs.tar.gz",
+      "license": "Original package tarballs and notices retained in npm content cache; see npm-inputs.json"
+    }
+  ]
+}

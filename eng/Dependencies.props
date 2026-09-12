@@ -118,7 +118,7 @@ may be turned into `<PackageReference>` items in projects.
     <_LatestRuntimePackageReference Include="Microsoft.NETCore.App.Runtime.linux-musl-arm64" />
     <_LatestRuntimePackageReference Include="Microsoft.NETCore.App.Runtime.freebsd-x64" />
     <_LatestRuntimePackageReference Include="Microsoft.NETCore.App.Runtime.freebsd-arm64" />
-    <_LatestRuntimePackageReference Include="Microsoft.NETCore.App.Runtime.$(TargetRuntimeIdentifier)" Condition=" '$(DotNetBuildSourceOnly)' == 'true'" />
+    <_LatestRuntimePackageReference Include="Microsoft.NETCore.App.Runtime.$(TargetRuntimeIdentifier)" Condition=" '$(DotNetBuildSourceOnly)' == 'true' OR '$(TargetOsName)' == 'openharmony'" />
 
     <!-- Crossgen2 compiler -->
     <_LatestRuntimePackageReference Include="Microsoft.NETCore.App.Crossgen2.win-x64" />

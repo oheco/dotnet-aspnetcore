@@ -1,0 +1,15 @@
+<Project>
+  <!-- The upstream bootstrap SDK predates the independent OpenHarmony RID.
+       Reuse the resolver from our source-built .NET SDK port. It selects the
+       Unix ARM64 code-generation ABI while preserving the OpenHarmony runtime
+       pack; no Linux native runtime assets may be substituted. -->
+  <UsingTask TaskName="ResolveReadyToRunCompilers"
+             AssemblyFile="$(OpenHarmonySdkBuildTasks)"
+             Override="true" />
+  <Target Name="ValidateOpenHarmonyCodegenInputs" BeforeTargets="ResolveReadyToRunCompilers">
+    <Error Condition="'$(OpenHarmonySdkBuildTasks)' == '' or !Exists('$(OpenHarmonySdkBuildTasks)')"
+           Text="Set OpenHarmonySdkBuildTasks to the verified Microsoft.NET.Build.Tasks.dll from the OpenHarmony SDK source build." />
+    <Error Condition="'$(RuntimeIdentifier)' != 'openharmony-arm64'"
+           Text="This OpenHarmony build currently supports openharmony-arm64 only." />
+  </Target>
+</Project>
