@@ -108,9 +108,15 @@ if ! "$accept_sdk/bin/dotnet" user-jwts create --project "$accept_root/template-
 fi
 print 'PASS jwts-create'
 accept_run jwts-list "$accept_sdk/bin/dotnet" user-jwts list --project "$accept_root/template-web/TemplateApp.csproj"
-[[ $(< "$accept_root/jwts-list.log") == *'https://oheco-accept.invalid'* ]]
+# The human-readable table wraps cells at the terminal width. Validate the
+# unwrapped JSON privately; it includes the synthetic token, so do not publish it.
+"$accept_sdk/bin/dotnet" user-jwts list --output json --project "$accept_root/template-web/TemplateApp.csproj" > "$accept_root/jwts-list.private"
+[[ $(< "$accept_root/jwts-list.private") == *'"Audience": "https://oheco-accept.invalid"'* ]]
+print 'PASS jwts-audience-json'
 accept_run jwts-clear "$accept_sdk/bin/dotnet" user-jwts clear --force --project "$accept_root/template-web/TemplateApp.csproj"
-rm -f "$accept_root/jwts-create.private"
+accept_run jwts-empty "$accept_sdk/bin/dotnet" user-jwts list --output json --project "$accept_root/template-web/TemplateApp.csproj"
+[[ $(< "$accept_root/jwts-empty.log") == '[]' ]]
+rm -f "$accept_root/jwts-create.private" "$accept_root/jwts-list.private"
 accept_run new-console "$accept_sdk/bin/dotnet" new console --name ConsoleProbe --output "$accept_root/console with spaces" --no-restore
 cd "$accept_root/console with spaces"
 for accept_revision in 1 2; do
