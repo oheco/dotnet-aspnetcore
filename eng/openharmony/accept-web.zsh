@@ -101,6 +101,15 @@ accept_run secrets-list "$accept_sdk/bin/dotnet" user-secrets list --project "$a
 [[ $(< "$accept_root/secrets-list.log") == *'probe-value'* ]]
 accept_run secrets-remove "$accept_sdk/bin/dotnet" user-secrets remove acceptance:value --project "$accept_root/template-web/TemplateApp.csproj"
 accept_run jwts-help "$accept_sdk/bin/dotnet" user-jwts --help
+if ! "$accept_sdk/bin/dotnet" user-jwts create --project "$accept_root/template-web/TemplateApp.csproj" --name oheco-acceptance --audience https://oheco-accept.invalid > "$accept_root/jwts-create.private" 2>&1; then
+    print -u2 "JWT creation failed; see $accept_root/jwts-create.private"
+    exit 1
+fi
+print 'PASS jwts-create'
+accept_run jwts-list "$accept_sdk/bin/dotnet" user-jwts list --project "$accept_root/template-web/TemplateApp.csproj"
+[[ $(< "$accept_root/jwts-list.log") == *'https://oheco-accept.invalid'* ]]
+accept_run jwts-clear "$accept_sdk/bin/dotnet" user-jwts clear --force --project "$accept_root/template-web/TemplateApp.csproj"
+rm -f "$accept_root/jwts-create.private"
 accept_run new-console "$accept_sdk/bin/dotnet" new console --name ConsoleProbe --output "$accept_root/console with spaces" --no-restore
 cd "$accept_root/console with spaces"
 for accept_revision in 1 2; do
